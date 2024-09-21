@@ -3,7 +3,11 @@ return {
   ssh_domains = {},
 
   -- ref: https://wezfurlong.org/wezterm/multiplexing.html#unix-domains
-  unix_domains = {},
+  unix_domains = {
+    {
+      name = "unix"
+    }
+  },
 
   -- ref: https://wezfurlong.org/wezterm/config/lua/WslDomain.html
   wsl_domains = {
@@ -16,5 +20,5 @@ return {
     },
   },
 
-  default_domain = "WSL:Ubuntu-22.04",
+  default_domain = "unix",
 }

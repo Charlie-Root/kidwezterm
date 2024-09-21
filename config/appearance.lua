@@ -34,7 +34,7 @@ return {
   hide_tab_bar_if_only_one_tab = false,
   use_fancy_tab_bar = true,
   tab_max_width = 25,
-  show_tab_index_in_tab_bar = false,
+  show_tab_index_in_tab_bar = true,
   switch_to_last_active_tab_when_closing_tab = true,
 
   -- window
@@ -54,6 +54,7 @@ return {
   window_close_confirmation = "NeverPrompt",
   window_frame = {
     active_titlebar_bg = "#090909",
+    font_size = 11
     -- font = fonts.font,
     -- font_size = fonts.font_size,
   },

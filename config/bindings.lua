@@ -11,6 +11,9 @@ if platform.is_mac then
 elseif platform.is_win then
   mod.SUPER = "ALT" -- to not conflict with Windows key shortcuts
   mod.SUPER_REV = "ALT|CTRL"
+elseif platform.is_linux then
+  mod.SUPER = "CTRL"
+  mod.SUPER_REV = "CTRL|SHIFT"
 end
 
 local keys = {
@@ -43,14 +46,14 @@ local keys = {
   },
 
   -- copy/paste --
-  { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
-  { key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+  { key = "c", mods = mod.SUPER_REV, action = act.CopyTo("Clipboard") },
+  { key = "v", mods = mod.SUPER_REV, action = act.PasteFrom("Clipboard") },
 
   -- tabs --
   -- tabs: spawn+close
   { key = "t", mods = mod.SUPER, action = act.SpawnTab("DefaultDomain") },
   { key = "t", mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = "WSL:Ubuntu-22.04" }) },
-  { key = "w", mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
+  -- { key = "w", mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
 
   -- tabs: navigation
   { key = "[", mods = mod.SUPER, action = act.ActivateTabRelative(-1) },
@@ -107,7 +110,7 @@ local keys = {
     action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
   {
-    key = [[\]],
+    key = [[|]],
     mods = mod.SUPER_REV,
     action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
